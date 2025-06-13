@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 
 // Seleção de elementos do DOM
-const hamburger = document.querySelector('.hamburguer');
+const hamburguer = document.querySelector('.hamburguer');
 const nav = document.querySelector('.nav');
-const navList = document.querySelector('.nav-list');
+const navlist = document.querySelector('.nav-list');
 const cartModal = document.getElementById('cart-modal');
 const closeCartButton = document.getElementById('close-cart');
 const cartLink = document.querySelector('a[href*="#carrinho"]');
@@ -16,17 +16,12 @@ const checkoutButton = document.getElementById('checkout');
 let cartItems = [];
 
 // Verificação inicial para garantir que os elementos existem
-if (!hamburger || !nav || !navList || !cartModal || !closeCartButton || !cartLink || !cartItemsList || !totalPriceElement || !cartCountElement) {
+if (!hamburguer || !nav || !navlist || !cartModal || !closeCartButton || !cartLink || !cartItemsList || !totalPriceElement || !cartCountElement) {
     console.error('Um ou mais elementos do DOM não foram encontrados.');
 }
 
-// Função para alternar o menu hambúrguer
-function toggleMenu() {
-    if (nav && hamburger) {
-        const isExpanded = nav.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isExpanded);
-    }
-}
+navlist.addEventListener("click", () => nav.classList.toggle("active"));
+hamburguer.addEventListener("click", () => nav.classList.toggle("active"));
 
 // Função para abrir o carrinho
 function openCart(event) {
@@ -97,23 +92,6 @@ function loadCart() {
         cartItems = JSON.parse(savedCart);
         updateCart();
     }
-}
-
-// Configuração de acessibilidade para o botão hambúrguer
-if (hamburger) {
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-controls', 'nav-list');
-    hamburger.addEventListener('click', toggleMenu);
-}
-
-// Evento para fechar o menu ao clicar em um item da lista
-if (navList) {
-    navList.addEventListener('click', (event) => {
-        if (event.target.tagName === 'A') {
-            nav.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-        }
-    });
 }
 
 // Evento para abrir o carrinho ao clicar no link

@@ -53,134 +53,168 @@ img{
 }
 
 
-nav{
-  display: flex;
-  padding: 20px;
-  justify-content: space-between;
-  align-items: center;
-
-  background-color: var(--bj);
-
-  font-family: "Playwrite HU", cursive;
-
-  position: sticky;
-  top: 0;
-  z-index: 99;
+nav {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fundo);
+    font-family: "Playfair Display", serif;
+    position: sticky;
+    top: 0;
+    z-index: 99;
 }
 
-.logo img{
-  width: 150px;
-  transition: 300ms;
-
+.logo img {
+    width: 200px;
+    height: 150px;
+    transition: 300ms;
+    object-fit: cover;
 }
 
-.logo img:hover{
-  transform: scale(1.05);
+.logo img:hover {
+    transform: scale(1.05);
 }
 
-.nav-list{
-  display: flex;
-  gap: 30px;
-  list-style: none;
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    transition: 300ms;
 }
 
-.nav-list a{
-  padding-block: 15px;
-  transition: 300ms;
-  font-weight: 500;
+.nav-list a {
+    padding-block: 15px;
+    transition: 300ms;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--douradomaisescuro);
+    transition: 300ms;
 }
 
-.nav-list a:hover{
-  font-size: 18px;
+#Contato {
+    background-color: var(--douradomaisescuro);
+    color: var(--fundo);
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
-.hamburguer{
-  display: none;
-  border: none;
-  background: none;
-  border-top: 3px solid var(--cors);
+.nav-list a:hover {
+    font-size: 24px;
 }
 
-.hamburguer::after, .hamburguer::before{
-  contain: "";
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: var(--corp);
-  margin-top: 5px;
-  position: relative;
-  transition: 0,3;
+.hamburguer {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.hamburguer::after, .hamburguer::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: var(--cors);
+    margin-top: 5px;
+    position: relative;
+    transition: 0,3s;
 }
 
 @media (max-width: 750px){
   .hamburguer{
-    display: block;
-    z-index: 1;
-  }
+        display: block;
+        z-index: 1;
+    }
 
+    nav{
+        justify-content: space-between;
+    }
 
-  .nav-list{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    background: var(--bj);
-    clip-path: circle(100p at 90% -15);
-    transition: 1s ease-in-out;
-  
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 0;
-    pointer-events: none;
-  
-  }
-  
-  .nav-list a{
-    margin-top: 150px;
-    font-size: 20px;
-    opacity: 0;
-  }
-  
-  .nav-list li:nth-child(1) a{
-    transition: 0.5s 0.2s;
-  }
-  
-  .nav-list li:nth-child(2) a{
-    transition: 0.5s 0.4s;
-  }
-  
-  .nav-list li:nth-child(3) a{
-    transition: 0.5s 0.6s;
-  }
-  
-  .nav-list li:nth-child(4) a{
-    transition: 0.5s 0.8s;
-  }
-  
-  .nav-list li:nth-child(4) a{
-    transition: 0.5s 0.1s;
-  }
+    .nav-list{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--corp);
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-in-out;
 
-  /* animação*/
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
 
-  .nav.active .nav-list{
-    clip-path: circle(1500px at 90% -15%);
-    pointer-events: all;
-  }
+        pointer-events: none;
+    }
 
-  .nav.active .nav-list a{
-    opacity: 1;
-  }
+    .nav-list a{
+        margin-top: 150px;
+        font-size: 20px;
+        opacity: 0;
+    }
 
-  .nav.active .hamburguer::before{
-    transform: rotate(135deg);
-  }
+    .nav-list li:nth-child(1) a{
+        transition: 0.5s 0.2s;
+    }
 
-  .nav-list .hamburguer::after{
-    transform: rotate(-135deg);
-    top: 7px;
-  }
+    .nav-list li:nth-child(2) a{
+        transition: 0.5s 0.4s;
+    }
+
+    .nav-list li:nth-child(3) a{
+        transition: 0.5s 0.6s;
+    }
+
+    .nav-list li:nth-child(4) a{
+        transition: 0.5s 0.8s;
+    }
+
+    .nav-list li:nth-child(5) a{
+        transition: 0.5s 1s;
+    }
+
+    .nav-list li:nth-child(6) a{
+        transition: 0.5s 1.2s;
+    }
+
+    .nav-list li:nth-child(7) a{
+        transition: 0.5s 1.4s;
+    }
+
+    .nav-list li:nth-child(8) a{
+        transition: 0.5s 1.6s;
+    }
+
+    /* Animação */
+
+    .nav.active .nav-list{
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav.active .nav-list a{
+        opacity: 1;
+    }
+
+    .nav.active .hamburguer{
+        position: fixed;
+        right: 5%;
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburguer::before{
+        transform:  rotate(135deg);
+    }
+
+    .nav.active .hamburguer::after{
+        transform:  rotate(-135deg);
+        top: -7px;
+    }
 }
 
 /* Estilos do Footer */
