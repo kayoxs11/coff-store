@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seu Café Aqui - Descubra nossa seleção especial de cafés gourmet, incluindo expresso, arábica e mais.">
+    <title>Seu Café Aqui</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header>
+        <nav class="nav" hidden aria-label="Navegação principal">
+            <a href="/" class="logo">
+                <img src="img/logocafe.jpeg" alt="Logotipo da Cafeteria Seu Café Aqui" width="100" height="50">
+            </a>
+            <button class="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-list"></button>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#carrinho">Carrinho (<span id="cart-co">0</span>)</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="topo" id="home">
+            <div class="topo-text">
+                <h1>Os melhores cafés, direto para você!</h1>
+                <p>Descubra nossa seleção especial de cafés gourmet.</p>
+                <a href="#produtos" class="btn">Ver produtos</a>
+            </div>
+        </section>
+
+        <section class="categorias" aria-labelledby="categorias-title">
+            <h2 id="categorias-title" class="sr-only">Categorias de Cafés</h2>
+            <div class="categorias-item hidden">
+                <a href="#cafe"><article class="item-categoria hidden">
+                    <div class="item-categoria-image" >
+                        <img src="https://wallpapercave.com/wp/wp9277497.jpg" alt="Café Expresso" width="200" height="150" loading="lazy">
+                    </div>
+                    <h3>Café Gourmet</h3>
+                </article>
+                </a>
+                <a href="#bolos"><article class="item-categoria">
+                    <div class="item-categoria-image">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.nJAvSWSRNvv9XR1ILBH7NQHaEo&pid=Api&P=0&h=180" alt="Café Gourmet" width="200" height="150" loading="lazy">
+                    </div>
+                    <h3>bolo</h3>
+                </article>
+                </a>
+                <a href="#Salgados"><article class="item-categoria">
+                    <div class="item-categoria-image">
+                        <img src="https://img.freepik.com/fotos-gratis/vista-frontal-deliciosa-composicao-da-comida-brasileira_23-2148739224.jpg" alt="Café Arábica" width="200" height="150" loading="lazy">
+                    </div>
+                    <h3>Salgados</h3>
+                </article>
+                </a>
+                <a href="#Pães"><article class="item-categoria">
+                    <div class="item-categoria-image">
+                        <img src="https://c.wallhere.com/photos/b9/7c/bread_basket_baking_set-1042357.jpg!d" alt="Café Libérica" width="200" height="150" loading="lazy">
+                    </div>
+                    <h3>Pães</h3>
+                </article>
+                </a>
+            </div>
+        </section>
+
+        <section id="produtos" class="produtos" >
+
+                <div class="title"><h1 id="cafe">Cafe</h1></div>
+
+            <div class="container-produtos hidden" >
+                <article class="product hidden" data-id="1" data-name="Café Expresso" data-price="9.99">
+                    <div class="product-img">
+                        <img src="img/produtos/o-que-e-cafe-expresso-capa.jpg" alt="Café Expresso" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Café Expresso</h3>
+                        <p>Preço: R$ 9,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="2" data-name="Café em Cápsula" data-price="7.99">
+                    <div class="product-img">
+                        <img src="img/produtos/43987.webp" alt="Café em Cápsula" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Café em Cápsula</h3>
+                        <p>Preço: R$ 7,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="3" data-name="Café Expresso Gourmet" data-price="12.99">
+                    <div class="product-img">
+                        <img src="img/produtos/Café-expresso-1.jpg" alt="Café Expresso Gourmet" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Café Expresso Gourmet</h3>
+                        <p>Preço: R$ 12,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="cart-modal" class="modal">
+            <div class="modal-content">
+                <button id="close-cart" aria-label="Fechar carrinho">×</button>
+                <h2>Carrinho</h2>
+                <ul id="cart-itens"></ul>
+                <p>Total: R$ <span id="total-price">0,00</span></p>
+                <button id="checkout" class="checkout-btn">Finalizar Compras</button>
+            </div>
+        </section>
+
+        <section id="produtos" class="produtos">
+
+            <div class="title"><h1 id="bolos">Bolos</h1></div>
+            <div class="container-produtos">
+                <article class="product" data-id="1" data-name="Café Expresso" data-price="9.99">
+                    <div class="product-img">
+                        <img src="https://www.revistabula.com/wp/wp-content/uploads/2018/06/Pernambuco_Bolo-de-Rolo--768x499.jpg" alt="Café Expresso" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Bolo de rolo</h3>
+                        <p>Preço: R$ 9,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="2" data-name="brownie" data-price="7.99">
+                    <div class="product-img">
+                        <img src="https://www.recipetineats.com/wp-content/uploads/2020/03/Brownies_0-SQ.jpg" alt="brownie" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>brownie</h3>
+                        <p>Preço: R$ 7,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="3" data-name="Café Expresso Gourmet" data-price="12.99">
+                    <div class="product-img">
+                        <img src="https://www.receitasfaceisepraticas.com.br/wp-content/uploads/2020/03/bologelado1.jpg" alt="Café Expresso Gourmet" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Bolo recheado de prestigio</h3>
+                        <p>Preço: R$ 12,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+            </div>
+        </section>
+
+
+        <section id="produtos" class="produtos">
+            <div class="title"><h1 id="Salgados">Salgados</h1></div>
+            <div class="container-produtos">
+                <article class="product" data-id="1" data-name="Café Expresso" data-price="9.99">
+                    <div class="product-img">
+                        <img src="https://img.freepik.com/fotos-gratis/vista-frontal-deliciosa-composicao-da-comida-brasileira_23-2148739224.jpg" alt="Café Expresso" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Coxinha</h3>
+                        <p>Preço: R$ 9,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="2" data-name="brownie" data-price="7.99">
+                    <div class="product-img">
+                        <img src="https://moinhoglobo.com.br/wp-content/uploads/2016/03/44-p%C3%A3o-de-queijo.jpg" alt="brownie" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Pão de queijo</h3>
+                        <p>Preço: R$ 7,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="3" data-name="Café Expresso Gourmet" data-price="12.99">
+                    <div class="product-img">
+                        <img src="https://www.comidaereceitas.com.br/wp-content/uploads/2008/08/Pastel-paulista-freepik.jpg" alt="Café Expresso Gourmet" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Pastel de ar</h3>
+                        <p>Preço: R$ 12,99</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+            </div>
+        </section>
+
+
+         <section id="produtos" class="produtos">
+            <div class="title"><h1 id="Pães">Pães</h1></div>
+            <div class="container-produtos">
+                <article class="product" data-id="1" data-name="Café Expresso" data-price="9.99">
+                    <div class="product-img">
+                        <img src="https://lirp.cdn-website.com/33406c6e/dms3rep/multi/opt/Graos-utilizados-na-panificacao-640w.jpeg" alt="Café Expresso" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Pão de Grãos</h3>
+                        <p>Preço: R$ 2,79 a uni.</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="2" data-name="brownie" data-price="7.99">
+                    <div class="product-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiDtkdyRh2yjlRKvzCN-zboBk2zQt-AqGKzg&s" alt="brownie" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Croissant</h3>
+                        <p>Preço: R$ 7,89 a uni.</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+                <article class="product" data-id="3" data-name="Café Expresso Gourmet" data-price="12.99">
+                    <div class="product-img">
+                        <img src="https://files.agro20.com.br/uploads/2020/03/P%C3%A3o-franc%C3%AAs-2.jpg" alt="Café Expresso Gourmet" width="250" height="150" loading="lazy">
+                    </div>
+                    <div class="product-text">
+                        <h3>Pão Francês</h3>
+                        <p>Preço: R$ 1,79 a uni.</p>
+                    </div>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="cart-modal" class="modal">
+            <div class="modal-content">
+                <button id="close-cart" aria-label="Fechar carrinho">×</button>
+                <h2>Carrinho</h2>
+                <ul id="cart-itens"></ul>
+                <p>Total: R$ <span id="total-price">0,00</span></p>
+                <button id="checkout" class="checkout-btn">Finalizar Compras</button>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-footer">Seu Café Aqui</h2>
+                <p>Oferecemos os melhores cafés, selecionados especialmente para você. Explore nossa variedade de grãos e métodos de preparo.</p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> +55 81 99999-9999</span>
+                    <span><i class="fas fa-envelope"></i> contato@seucafeaqui.com.br</span>
+                </div>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#carrinho">Carrinho</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-form" id="contato">
+                <h2>Entre em Contato</h2>
+                <form id="contactForm" aria-label="Formulário de contato">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Seu endereço de e-mail..." required aria-required="true">
+                    <textarea rows="4" name="message" class="text-input contact-input" placeholder="Sua mensagem..." required aria-required="true"></textarea>
+                    <button type="button" class="btn btn-big" id="sendToGmail">
+                        <i class="fas fa-envelope"></i> Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © Seu Café Aqui | Desenvolvido por [Seu Nome/Nome da Sua Equipe]
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

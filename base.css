@@ -1,0 +1,343 @@
+.playwrite-hu{
+    font-family: "Playwrite HU", cursive;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.lily-script-one-regular {
+    font-family: "Lily Script One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  :root{
+    --corp: #a60f19;
+    --cors: #6c2d08;
+    --bj: #f2eee3;
+    --branco: #ffffff;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+  }
+
+  html{
+   scroll-behavior: smooth;
+}
+
+img{
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/*animações*/
+
+.hidden{
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+  transition: all 1s;
+}
+
+
+nav{
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--bj);
+
+  font-family: "Playwrite HU", cursive;
+
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.logo img{
+  width: 150px;
+  transition: 300ms;
+
+}
+
+.logo img:hover{
+  transform: scale(1.05);
+}
+
+.nav-list{
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-list a{
+  padding-block: 15px;
+  transition: 300ms;
+  font-weight: 500;
+}
+
+.nav-list a:hover{
+  font-size: 18px;
+}
+
+.hamburguer{
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid var(--cors);
+}
+
+.hamburguer::after, .hamburguer::before{
+  contain: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--corp);
+  margin-top: 5px;
+  position: relative;
+  transition: 0,3;
+}
+
+@media (max-width: 750px){
+  .hamburguer{
+    display: block;
+    z-index: 1;
+  }
+
+
+  .nav-list{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    background: var(--bj);
+    clip-path: circle(100p at 90% -15);
+    transition: 1s ease-in-out;
+  
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+  
+  }
+  
+  .nav-list a{
+    margin-top: 150px;
+    font-size: 20px;
+    opacity: 0;
+  }
+  
+  .nav-list li:nth-child(1) a{
+    transition: 0.5s 0.2s;
+  }
+  
+  .nav-list li:nth-child(2) a{
+    transition: 0.5s 0.4s;
+  }
+  
+  .nav-list li:nth-child(3) a{
+    transition: 0.5s 0.6s;
+  }
+  
+  .nav-list li:nth-child(4) a{
+    transition: 0.5s 0.8s;
+  }
+  
+  .nav-list li:nth-child(4) a{
+    transition: 0.5s 0.1s;
+  }
+
+  /* animação*/
+
+  .nav.active .nav-list{
+    clip-path: circle(1500px at 90% -15%);
+    pointer-events: all;
+  }
+
+  .nav.active .nav-list a{
+    opacity: 1;
+  }
+
+  .nav.active .hamburguer::before{
+    transform: rotate(135deg);
+  }
+
+  .nav-list .hamburguer::after{
+    transform: rotate(-135deg);
+    top: 7px;
+  }
+}
+
+/* Estilos do Footer */
+footer {
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Cor do texto branco */
+  padding: 60px 0;
+}
+
+.footer-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: space-around; /* Distribui o espaço uniformemente */
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  margin-bottom: 40px; /* Aumenta o espaçamento entre as seções */
+  text-align: center; /* Centraliza o conteúdo das seções */
+}
+
+.footer-section h2 {
+  margin-bottom: 20px;
+  color: var(--cors); /* Mantém a cor de destaque para os títulos */
+  font-size: 1.6em;
+  border-bottom: 2px solid var(--cors); /* Mantém a linha abaixo dos títulos */
+  padding-bottom: 10px;
+  text-align: center; /* Centraliza o título */
+}
+
+.footer-section p {
+  line-height: 1.6;
+  color: #ddd; /* Cor do texto um pouco mais clara */
+}
+
+.contact span {
+  display: block;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.contact span i {
+  margin-right: 5px;
+  color: var(--cors); /* Mantém a cor de destaque para os ícones */
+}
+
+.socials {
+  display: flex;
+  justify-content: center; /* Centraliza os ícones sociais */
+  gap: 10px; /* Espaçamento entre os ícones sociais */
+}
+
+.socials a {
+  border: 1px solid #555;
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.1em;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.socials a:hover {
+  background: var(--cors);
+  border-color: var(--cors);
+}
+
+.footer-section.links ul {
+  list-style: none;
+  padding: 0;
+  text-align: center; /* Centraliza os links */
+}
+
+.footer-section.links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section.links ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section.links ul li a:hover {
+  color: var(--cors);
+}
+
+.contact-form {
+  text-align: center; /* Centraliza o formulário */
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 80%; /* Largura um pouco menor para centralizar */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact-form .btn {
+  background: var(--cors);
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background: darken(var(--cors), 10%);
+}
+
+.footer-bottom {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.8em;
+  border-top: 1px solid #222;
+}
+
+/* Estilos responsivos para o footer */
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-section {
+      width: 80%;
+      text-align: center;
+      margin-right: 0;
+  }
+
+  .footer-section.contact-form {
+      width: 80%;
+  }
+
+  .contact-form input[type="email"],
+  .contact-form textarea {
+      width: 100%; /* Ocupa toda a largura em telas menores */
+  }
+
+  .contact-form .btn {
+      width: 100%; /* Botão de contato ocupa toda a largura em telas menores */
+  }
+}
